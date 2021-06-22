@@ -32,8 +32,7 @@ class AnimationController: UIViewController {
             let nextViewController = storyBoard.instantiateViewController(withIdentifier: "LoginScreen") as! LoginController
             nextViewController.modalPresentationStyle = .fullScreen
             self.present(nextViewController, animated:true, completion:nil)
-        }
-    }
+        }    }
     
     
 }

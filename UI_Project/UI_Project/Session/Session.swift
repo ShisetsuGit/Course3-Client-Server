@@ -8,12 +8,12 @@
 import Foundation
 
 final class VKSession {
-    
-    static let currentSesion = VKSession()
-    
+
+    static let currentSession = VKSession()
+
     var token = String()
     var userId = Int()
-    
+
     private init() {}
-    
+
 }
