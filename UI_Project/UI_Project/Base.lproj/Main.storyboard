@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CPz-u2-HbY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2Nq-uW-k0A">
     <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -51,6 +51,140 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4qJ-jt-s1I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1520" y="-258"/>
+        </scene>
+        <!--Web View Controller-->
+        <scene sceneID="9dB-ts-mjB">
+            <objects>
+                <viewController id="2Nq-uW-k0A" customClass="WebViewController" customModule="UI_Project" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2CE-ic-i0u">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T3F-2c-j67">
+                                <rect key="frame" x="0.0" y="44" width="428" height="848"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="nHq-kj-uWU"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="T3F-2c-j67" firstAttribute="top" secondItem="nHq-kj-uWU" secondAttribute="top" id="1UA-PC-Y9J"/>
+                            <constraint firstItem="nHq-kj-uWU" firstAttribute="trailing" secondItem="T3F-2c-j67" secondAttribute="trailing" id="9M0-XI-dLE"/>
+                            <constraint firstItem="T3F-2c-j67" firstAttribute="leading" secondItem="nHq-kj-uWU" secondAttribute="leading" id="gMX-KF-4EM"/>
+                            <constraint firstItem="nHq-kj-uWU" firstAttribute="bottom" secondItem="T3F-2c-j67" secondAttribute="bottom" id="lL2-Cu-fWL"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="T3F-2c-j67" id="K6S-Fh-sjM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gfh-y2-ea9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="66" y="-914"/>
+        </scene>
+        <!--Data Request Controller-->
+        <scene sceneID="AJf-0I-Xse">
+            <objects>
+                <viewController storyboardIdentifier="DataRequestVC" id="lTK-cc-Y9g" customClass="DataRequestController" customModule="UI_Project" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iMD-V8-mn1">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="SERVICE DATA REQUEST" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iPR-BF-6o0">
+                                <rect key="frame" x="118.66666666666669" y="44" width="191" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Token" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5C6-3x-GCG">
+                                <rect key="frame" x="20" y="94" width="67" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dHG-wh-hog">
+                                <rect key="frame" x="20" y="138" width="388" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="User ID" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sZd-6t-E2E">
+                                <rect key="frame" x="20" y="182" width="76" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WCF-kT-uGf">
+                                <rect key="frame" x="20" y="226" width="388" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n4G-28-e1K">
+                                <rect key="frame" x="20" y="268" width="161" height="30"/>
+                                <state key="normal" title="Запрос списка друзей"/>
+                                <connections>
+                                    <action selector="getFriends:" destination="lTK-cc-Y9g" eventType="touchUpInside" id="QHN-gU-PdQ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fmu-ru-FyX">
+                                <rect key="frame" x="20" y="306" width="144" height="30"/>
+                                <state key="normal" title="Запрос фотографий"/>
+                                <connections>
+                                    <action selector="getPhoto:" destination="lTK-cc-Y9g" eventType="touchUpInside" id="NDU-zc-cvi"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rlN-Lv-gB5">
+                                <rect key="frame" x="20" y="344" width="151" height="30"/>
+                                <state key="normal" title="Запрос списка групп"/>
+                                <connections>
+                                    <action selector="getGroups:" destination="lTK-cc-Y9g" eventType="touchUpInside" id="Wcn-2x-3MN"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8kD-B0-V0K">
+                                <rect key="frame" x="20" y="382" width="174" height="30"/>
+                                <state key="normal" title="Поиск групп по запросу"/>
+                                <connections>
+                                    <action selector="searchGroup:" destination="lTK-cc-Y9g" eventType="touchUpInside" id="RHd-Of-7xP"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="tcd-cx-Va4"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="iPR-BF-6o0" firstAttribute="centerX" secondItem="tcd-cx-Va4" secondAttribute="centerX" id="06c-B5-KRi"/>
+                            <constraint firstItem="iPR-BF-6o0" firstAttribute="top" secondItem="tcd-cx-Va4" secondAttribute="top" id="3fZ-nE-Uq8"/>
+                            <constraint firstItem="sZd-6t-E2E" firstAttribute="top" secondItem="dHG-wh-hog" secondAttribute="bottom" constant="10" id="9IV-xb-ucV"/>
+                            <constraint firstItem="WCF-kT-uGf" firstAttribute="leading" secondItem="tcd-cx-Va4" secondAttribute="leading" constant="20" id="ABc-ee-VIQ"/>
+                            <constraint firstItem="n4G-28-e1K" firstAttribute="top" secondItem="WCF-kT-uGf" secondAttribute="bottom" constant="8" id="ARQ-8q-KD6"/>
+                            <constraint firstItem="tcd-cx-Va4" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="n4G-28-e1K" secondAttribute="trailing" symbolic="YES" id="Ggy-iQ-z5D"/>
+                            <constraint firstItem="dHG-wh-hog" firstAttribute="leading" secondItem="tcd-cx-Va4" secondAttribute="leading" constant="20" id="Hvm-5h-wlz"/>
+                            <constraint firstItem="dHG-wh-hog" firstAttribute="top" secondItem="5C6-3x-GCG" secondAttribute="bottom" constant="10" id="LoR-kG-EJq"/>
+                            <constraint firstItem="Fmu-ru-FyX" firstAttribute="leading" secondItem="tcd-cx-Va4" secondAttribute="leading" constant="20" id="MKi-V4-O31"/>
+                            <constraint firstItem="tcd-cx-Va4" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="rlN-Lv-gB5" secondAttribute="trailing" symbolic="YES" id="MNv-Rh-BaB"/>
+                            <constraint firstItem="WCF-kT-uGf" firstAttribute="top" secondItem="sZd-6t-E2E" secondAttribute="bottom" constant="10" id="QEz-3b-JJS"/>
+                            <constraint firstItem="tcd-cx-Va4" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="8kD-B0-V0K" secondAttribute="trailing" symbolic="YES" id="T8a-c8-Ds8"/>
+                            <constraint firstItem="5C6-3x-GCG" firstAttribute="leading" secondItem="tcd-cx-Va4" secondAttribute="leading" constant="20" id="UDw-xO-n7X"/>
+                            <constraint firstItem="sZd-6t-E2E" firstAttribute="leading" secondItem="tcd-cx-Va4" secondAttribute="leading" constant="20" id="Vjn-tp-6Tg"/>
+                            <constraint firstItem="Fmu-ru-FyX" firstAttribute="top" secondItem="n4G-28-e1K" secondAttribute="bottom" constant="8" id="Xxg-eQ-Csp"/>
+                            <constraint firstItem="n4G-28-e1K" firstAttribute="leading" secondItem="tcd-cx-Va4" secondAttribute="leading" constant="20" id="YeU-P2-El8"/>
+                            <constraint firstItem="tcd-cx-Va4" firstAttribute="trailing" secondItem="dHG-wh-hog" secondAttribute="trailing" constant="20" id="fNF-Zi-l1u"/>
+                            <constraint firstItem="8kD-B0-V0K" firstAttribute="top" secondItem="rlN-Lv-gB5" secondAttribute="bottom" constant="8" id="gME-eh-vGR"/>
+                            <constraint firstItem="rlN-Lv-gB5" firstAttribute="top" secondItem="Fmu-ru-FyX" secondAttribute="bottom" constant="8" id="gkX-rG-VcE"/>
+                            <constraint firstItem="tcd-cx-Va4" firstAttribute="trailing" secondItem="WCF-kT-uGf" secondAttribute="trailing" constant="20" id="kk6-a2-gsf"/>
+                            <constraint firstItem="rlN-Lv-gB5" firstAttribute="leading" secondItem="tcd-cx-Va4" secondAttribute="leading" constant="20" id="lQD-kM-MzB"/>
+                            <constraint firstItem="5C6-3x-GCG" firstAttribute="top" secondItem="tcd-cx-Va4" secondAttribute="top" constant="50" id="lXs-hl-hCd"/>
+                            <constraint firstItem="tcd-cx-Va4" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Fmu-ru-FyX" secondAttribute="trailing" symbolic="YES" id="suu-vf-jRM"/>
+                            <constraint firstItem="8kD-B0-V0K" firstAttribute="leading" secondItem="tcd-cx-Va4" secondAttribute="leading" constant="20" id="xcz-gX-nO0"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tokenText" destination="WCF-kT-uGf" id="7Fn-3l-7rh"/>
+                        <outlet property="userIDText" destination="dHG-wh-hog" id="fjw-BT-aaO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XcW-PC-0es" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="872" y="-914"/>
         </scene>
         <!--Login Screen-->
         <scene sceneID="tne-QT-ifu">
