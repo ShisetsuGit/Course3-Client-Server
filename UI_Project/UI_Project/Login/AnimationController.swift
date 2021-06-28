@@ -29,7 +29,7 @@ class AnimationController: UIViewController {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
             let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "LoginScreen") as! LoginController
+            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "WKWebView") as! WebAuthController
             nextViewController.modalPresentationStyle = .fullScreen
             self.present(nextViewController, animated:true, completion:nil)
         }    }

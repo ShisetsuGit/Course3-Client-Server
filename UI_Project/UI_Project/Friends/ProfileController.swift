@@ -9,7 +9,10 @@ import UIKit
 
 class ProfileController: UIViewController {
     
-    var userPhoto: UIImage!
+    let photoRequest = APIRequest()
+    
+    var userPhoto = String()
+    var photoArray = [Photos]()
     var userName: String!
     var userSurname: String!
     var userCity: String!
@@ -17,8 +20,7 @@ class ProfileController: UIViewController {
     var userAge: String!
     var userStatus: String!
     var userBio: String!
-    //var userGalery:[UIImage]!
-    
+    var userID: String!
     
     @IBOutlet weak var avatar: UIImageView!
     @IBOutlet weak var name: UILabel!
@@ -28,22 +30,58 @@ class ProfileController: UIViewController {
     @IBOutlet weak var age: UILabel!
     @IBOutlet weak var status: UILabel!
     @IBOutlet weak var bio: UILabel!
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+            self.photoRequest.getPhoto(userID: self.userID) { photos in
+                self.photoArray = photos
+            }
+        }
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
         
         avatar.isUserInteractionEnabled = true
         avatar.addGestureRecognizer(tapGestureRecognizer)
         
-        avatar.image = userPhoto
+        let imageUrlString = userPhoto
+        let imageUrl = URL(string: imageUrlString)!
+        let imageData = try! Data(contentsOf: imageUrl)
+        let userAvatar = UIImage(data: imageData)!
+        
+        avatar.image = userAvatar
         name.text = userName
         surname.text = userSurname
-        city.text = userCity
-        birthDate.text = userBirth
-        age.text = userAge
+        if userCity == nil {
+            city.text = "Не указан"
+        } else {
+            city.text = userCity
+        }
+        if userBirth == nil {
+            birthDate.text = "Не указана"
+            age.text = "Не указан"
+        } else {
+            let dateFormat = "dd-MM-yyyy"
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = dateFormat
+            let birth = dateFormatter.date(from: userBirth)
+            let currentDate = Date()
+            
+            if let dateOfBirth = dateFormatter.date(from: userBirth) {
+                let calendar = Calendar(identifier: .gregorian)
+                let components = calendar.dateComponents([.year], from: dateOfBirth, to: currentDate)
+                let yearString = "\(components)"
+                age.text = yearString[6..<8]
+            }
+            
+            if birth != nil {
+                birthDate.text = userBirth
+            } else {
+                birthDate.text = "Не указана"
+                age.text = "Не указан"
+            }
+        }
         status.text = userStatus
         if status.text == "Offline" {
             status.textColor = UIColor.red
@@ -55,7 +93,7 @@ class ProfileController: UIViewController {
     
     @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer){
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PhotoGallery") as! CollectionViewController
-        vc.userPhoto = avatar.image
+        vc.photoToFullScreen = photoArray
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

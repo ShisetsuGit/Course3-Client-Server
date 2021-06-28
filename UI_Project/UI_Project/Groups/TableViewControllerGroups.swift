@@ -9,13 +9,20 @@ import UIKit
 
 class TableViewControllerGroups: UITableViewController {
     
-    
-    var userGroups = [String] ()
-    var groupPics = [String] ()
-    var groupInfo = [String] ()
+    var userGroups = [GroupsList]()
+    let groupsRequest = APIRequest()
+    var imageName = UIImage()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        groupsRequest.getGroups{ groups in
+            self.userGroups = groups
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+            self.tableView.reloadData()
+        }
+
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -29,11 +36,12 @@ class TableViewControllerGroups: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "userGroups", for: indexPath) as! TableViewCellGroups
         let groups = userGroups[indexPath.row]
-        cell.userGroupsLabel.text = groups
-        let groupDescription  = groupInfo[indexPath.row]
-        cell.groupDescription.text = groupDescription.description
-        let imageGroup = "\(self.groupPics[indexPath.row])"
-        cell.userGroupsPhoto.image = UIImage(named: imageGroup)
+        cell.userGroupsLabel.text = groups.name
+        let imageUrlString = groups.photo200
+        let imageUrl = URL(string: imageUrlString)!
+        let imageData = try! Data(contentsOf: imageUrl)
+        imageName = UIImage(data: imageData)!
+        cell.userGroupsPhoto.image = imageName
         cell.userGroupsPhoto.layer.cornerRadius = cell.userGroupsPhoto.frame.width / 2
         return cell
     }
@@ -41,8 +49,6 @@ class TableViewControllerGroups: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             userGroups.remove(at: indexPath.row)
-            groupPics.remove(at: indexPath.row)
-            groupInfo.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
@@ -56,17 +62,12 @@ class TableViewControllerGroups: UITableViewController {
     @IBAction func addGroup(segue: UIStoryboardSegue) {
         if segue.identifier == "addGroup" {
             guard let RecomendedGroups = segue.source as? TableViewControllerRecomendGroups else { return }
-            
+
             if let indexPath = RecomendedGroups.tableView.indexPathForSelectedRow {
-                //let groups = RecomendedGroups.userReccomendGroups[indexPath.row]
-                let groups = RecomendedGroups.sendData[indexPath.row]
-                let image = RecomendedGroups.sendData[indexPath.row]
-                let descr = RecomendedGroups.sendData[indexPath.row]
-                
-                if !userGroups.contains(groups.name) || !groupPics.contains(image.photo) ||  !groupInfo.contains(descr.description){
-                    userGroups.append(groups.name)
-                    groupPics.append(image.photo)
-                    groupInfo.append(descr.description)
+                let groups = RecomendedGroups.searchedGroups[indexPath.row]
+
+                if !userGroups.contains(groups) {
+                    userGroups.append(groups)
                     tableView.reloadData()
                 }
             }

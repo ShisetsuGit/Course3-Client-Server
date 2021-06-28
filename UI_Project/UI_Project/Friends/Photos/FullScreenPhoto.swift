@@ -13,7 +13,7 @@ class FullScreenPhoto: UIViewController {
     var userPhoto: UIImage!
     var counts = 1
     var offset:CGFloat = 0
-    var userGalery = PhotoGallery().images
+    var photoArray = [Photos]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,13 +33,16 @@ class FullScreenPhoto: UIViewController {
 
 extension FullScreenPhoto: UICollectionViewDataSource, UIScrollViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return userGalery.count
+        return photoArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FullScreenPhotoCell", for: indexPath) as! FullScreenPhotoCell
-        
-        cell.fullPhotoView.image = userPhoto!
+        let photos = photoArray[indexPath.row]
+        let imageUrl = URL(string: photos.url)!
+        let imageData = try! Data(contentsOf: imageUrl)
+        let imageName = UIImage(data: imageData)
+        cell.fullPhotoView.image = imageName
         
         return cell
     }
