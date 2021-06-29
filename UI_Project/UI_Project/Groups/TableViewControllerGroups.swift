@@ -19,7 +19,7 @@ class TableViewControllerGroups: UITableViewController {
             self.userGroups = groups
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
             self.tableView.reloadData()
         }
 

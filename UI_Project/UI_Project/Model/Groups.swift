@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RealmSwift
 
 // MARK: - Groups
 struct Groups: Codable {
@@ -19,24 +20,18 @@ struct Response: Codable {
 }
 
 // MARK: - Item
-struct GroupsList: Codable, Equatable {
-    let id: Int
-    var name, screenName: String
-    let type: GroupType
-    let photo50, photo100, photo200: String
+class GroupsList: Object, Codable {
+    @objc dynamic var id: Int = 0
+    @objc dynamic var name = ""
+    @objc dynamic var photo200: String = ""
 
     enum CodingKeys: String, CodingKey {
         case id, name
-        case screenName = "screen_name"
-        case type
-        case photo50 = "photo_50"
-        case photo100 = "photo_100"
         case photo200 = "photo_200"
     }
-}
-
-enum GroupType: String, Codable {
-    case group = "group"
-    case page = "page"
+    
+    override static func primaryKey() -> String? {
+        return "id"
+    }
 }
 

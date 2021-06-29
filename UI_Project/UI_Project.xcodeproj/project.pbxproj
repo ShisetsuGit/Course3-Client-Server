@@ -38,6 +38,7 @@
 		99C45FD22684938800071D9A /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C45FD12684938800071D9A /* StringExtensions.swift */; };
 		99C45FD42684C01600071D9A /* FriendsPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C45FD32684C01600071D9A /* FriendsPhoto.swift */; };
 		99C45FD62688CBC900071D9A /* Groups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C45FD52688CBC900071D9A /* Groups.swift */; };
+		99C45FDC268B101200071D9A /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C45FDB268B101200071D9A /* TabController.swift */; };
 		99FDD4AA2578394900EA39AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FDD4A92578394900EA39AB /* AppDelegate.swift */; };
 		99FDD4AC2578394900EA39AB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FDD4AB2578394900EA39AB /* SceneDelegate.swift */; };
 		99FDD4B12578394900EA39AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99FDD4AF2578394900EA39AB /* Main.storyboard */; };
@@ -78,6 +79,7 @@
 		99C45FD12684938800071D9A /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		99C45FD32684C01600071D9A /* FriendsPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsPhoto.swift; sourceTree = "<group>"; };
 		99C45FD52688CBC900071D9A /* Groups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Groups.swift; sourceTree = "<group>"; };
+		99C45FDB268B101200071D9A /* TabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
 		99FDD4A62578394900EA39AB /* UI_Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UI_Project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99FDD4A92578394900EA39AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		99FDD4AB2578394900EA39AB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				99975AEB25A32B9F00E11042 /* CustomNavigationController.swift */,
+				99C45FDB268B101200071D9A /* TabController.swift */,
 			);
 			path = Navi;
 			sourceTree = "<group>";
@@ -414,6 +417,7 @@
 				998166F02584B3A7001DA1E3 /* TableViewCell.swift in Sources */,
 				99C45FCC2684627700071D9A /* Data+PrettyJSON.swift in Sources */,
 				99102D2B2592077E00F620BD /* NewsViewCell.swift in Sources */,
+				99C45FDC268B101200071D9A /* TabController.swift in Sources */,
 				995E491825988ED200C2864C /* AnimationController.swift in Sources */,
 				9981673A2584CD25001DA1E3 /* TableViewCellGroups.swift in Sources */,
 				998167382584CD25001DA1E3 /* TableViewCellRecomendedGroups.swift in Sources */,
@@ -512,7 +516,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -567,7 +571,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -586,6 +590,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AMLM73LX7T;
 				INFOPLIST_FILE = UI_Project/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -606,6 +611,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AMLM73LX7T;
 				INFOPLIST_FILE = UI_Project/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
