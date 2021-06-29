@@ -8,5 +8,8 @@ target 'UI_Project' do
   # Pods for UI_Project
   pod 'Alamofire'
   pod 'lottie-ios'
+  pod 'RealmSwift'
+  pod 'Kingfisher'
+  pod 'DynamicJSON'
 
 end
