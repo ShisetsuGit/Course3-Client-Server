@@ -8,7 +8,6 @@
 import UIKit
 import WebKit
 import Alamofire
-import SwiftKeychainWrapper
 
 class WebAuthController: UIViewController, WKNavigationDelegate {
     
@@ -20,17 +19,6 @@ class WebAuthController: UIViewController, WKNavigationDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if let token = KeychainWrapper.standard.string(forKey: "AuthToken"), let userID = KeychainWrapper.standard.string(forKey: "ID") {
-            
-            VKSession.currentSession.token = token
-            VKSession.currentSession.userId = userID
-
-            showMainScreen()
-            
-            return
-        }
-        
         VKAuth()
     }
     
@@ -47,7 +35,7 @@ class WebAuthController: UIViewController, WKNavigationDelegate {
             URLQueryItem(name: "response_type", value: "token"),
             URLQueryItem(name: "v", value: "5.131"),
             URLQueryItem(name: "state", value: "Your_TOKEN_is_MINE!!!"),
-//            URLQueryItem(name: "revoke", value: "1") // принудительный запрос прав на доступ, даже если уже выданы. Для отладки, что страница загружается.
+            URLQueryItem(name: "revoke", value: "1") // принудительный запрос прав на доступ, даже если уже выданы. Для отладки, что страница загружается.
         ]
         let request = URLRequest(url: urlComponents.url!)
         webView.load(request)
@@ -71,27 +59,23 @@ class WebAuthController: UIViewController, WKNavigationDelegate {
                 return dict
             }
         
-        if let token = params["access_token"],
-           let userID = params["user_id"] {
-            print("TOKEN = ", token as Any)
-            KeychainWrapper.standard.set(token, forKey: "AuthToken")
-            VKSession.currentSession.token = token
-            KeychainWrapper.standard.set(userID, forKey: "ID")
-            VKSession.currentSession.userId = userID
-            showMainScreen()
-        }
+        let token = params["access_token"]
+        let userID = params["user_id"]
+        
+        VKSession.currentSession.token = token!
+        VKSession.currentSession.userId = userID!
+
+        showMainScreen()
         
         decisionHandler(.cancel)
     }
     
     func showMainScreen() {
-        //        MARK: - Usual work segue to main Friend List VC
-        DispatchQueue.main.async {
-            self.performSegue(withIdentifier: "mainScreenSegue", sender: nil)
-        }
-        //        MARK: - Seque to service VC for analyze data
-//        DispatchQueue.main.async {
-//            self.performSegue(withIdentifier: "ServiceSegue", sender: nil)
-//        }
+//        MARK: - Usual work segue to main Friend List VC
+        performSegue(withIdentifier: "mainScreenSegue", sender: nil)
+        
+//        MARK: - Seque to service VC for analyze data
+//        performSegue(withIdentifier: "ServiceSegue", sender: nil)
+        
     }
 }

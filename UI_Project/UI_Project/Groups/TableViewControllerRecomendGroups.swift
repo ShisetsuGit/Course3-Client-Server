@@ -62,7 +62,7 @@ class TableViewControllerRecomendGroups: UITableViewController, UISearchBarDeleg
         
         let searchedGroups = searchedGroups[indexPath.row]
         cell.recomendedGroupsLabel.text = searchedGroups.name
-        let imageUrlString = searchedGroups.photo200
+        let imageUrlString = searchedGroups.photo100
         let imageUrl = URL(string: imageUrlString)!
         let imageData = try! Data(contentsOf: imageUrl)
         let imageName = UIImage(data: imageData)!

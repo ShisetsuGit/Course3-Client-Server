@@ -32,7 +32,7 @@ class FriendsTableController: UITableViewController, UISearchBarDelegate {
             self.friendsData = users
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
             self.friendsData.forEach { friend in
                 let firstLetter = String(friend.firstName.first!)
                 if self.sections[firstLetter] != nil {

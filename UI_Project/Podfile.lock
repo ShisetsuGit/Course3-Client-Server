@@ -1,34 +1,20 @@
 PODS:
   - Alamofire (5.4.3)
   - lottie-ios (3.2.3)
-  - Realm (10.8.1):
-    - Realm/Headers (= 10.8.1)
-  - Realm/Headers (10.8.1)
-  - RealmSwift (10.8.1):
-    - Realm (= 10.8.1)
-  - SwiftKeychainWrapper (4.0.1)
 
 DEPENDENCIES:
   - Alamofire
   - lottie-ios
-  - RealmSwift
-  - SwiftKeychainWrapper
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - lottie-ios
-    - Realm
-    - RealmSwift
-    - SwiftKeychainWrapper
 
 SPEC CHECKSUMS:
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
   lottie-ios: c058aeafa76daa4cf64d773554bccc8385d0150e
-  Realm: a2db54d9dcceddeba936b429f5b3d6610a109686
-  RealmSwift: 2a3c75ecbf5a3b04080ff5f6f0554cf6337b4764
-  SwiftKeychainWrapper: 807ba1d63c33a7d0613288512399cd1eda1e470c
 
-PODFILE CHECKSUM: 6f04c77b1ae3ba8a1b4a664b897fa4c952d05924
+PODFILE CHECKSUM: c75e69d1a4f562a9d914fad6a76310fab2bc8e5b
 
 COCOAPODS: 1.10.1

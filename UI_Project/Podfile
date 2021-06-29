@@ -8,7 +8,5 @@ target 'UI_Project' do
   # Pods for UI_Project
   pod 'Alamofire'
   pod 'lottie-ios'
-  pod 'SwiftKeychainWrapper'
-  pod 'RealmSwift'
 
 end

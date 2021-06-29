@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import RealmSwift
 
 // MARK: - FriendsPhoto
 struct FriendsPhoto: Codable {
@@ -20,14 +19,14 @@ struct ResponsePhoto: Codable {
 }
 
 // MARK: - Item
-class Albums: Object, Codable {
-    @objc dynamic var albumID, date, id, ownerID: Int
+struct Albums: Codable {
+    let albumID, date, id, ownerID: Int
     let hasTags: Bool
     let postID: Int?
-    @objc dynamic var sizes: [Photos]
+    var sizes: [Photos]
     let text: String
-    @objc dynamic var likes: Likes
-    @objc dynamic var reposts: Reposts
+    let likes: Likes
+    let reposts: Reposts
 
     enum CodingKeys: String, CodingKey {
         case albumID = "album_id"
@@ -40,8 +39,8 @@ class Albums: Object, Codable {
 }
 
 // MARK: - Likes
-class Likes: Object, Codable {
-    @objc dynamic var userLikes, count: Int
+struct Likes: Codable {
+    let userLikes, count: Int
 
     enum CodingKeys: String, CodingKey {
         case userLikes = "user_likes"
@@ -50,16 +49,27 @@ class Likes: Object, Codable {
 }
 
 // MARK: - Reposts
-class Reposts: Object, Codable {
-    @objc dynamic var count: Int
+struct Reposts: Codable {
+    let count: Int
 }
 
 // MARK: - Size
-class Photos: Object, Codable {
-    @objc dynamic var url: String
-    
-    override static func primaryKey() -> String? {
-        return "url"
-    }
+struct Photos: Codable {
+//    let height: Int
+    let url: String
+//    let type: TypeEnum
+//    let width: Int
 }
 
+enum TypeEnum: String, Codable {
+    case m = "m"
+    case o = "o"
+    case p = "p"
+    case q = "q"
+    case r = "r"
+    case s = "s"
+    case w = "w"
+    case x = "x"
+    case y = "y"
+    case z = "z"
+}

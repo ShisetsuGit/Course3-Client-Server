@@ -23,7 +23,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PUU-Ty-3ul" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-757" y="-255"/>
+            <point key="canvasLocation" x="-717" y="-256"/>
         </scene>
         <!--3 DOT-->
         <scene sceneID="xNf-vG-kql">
@@ -50,7 +50,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4qJ-jt-s1I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1562" y="-257"/>
+            <point key="canvasLocation" x="-1520" y="-258"/>
         </scene>
         <!--Web Auth Controller-->
         <scene sceneID="9dB-ts-mjB">
@@ -81,7 +81,7 @@
                     <connections>
                         <outlet property="webView" destination="T3F-2c-j67" id="K6S-Fh-sjM"/>
                         <segue destination="VoT-Gb-jyg" kind="presentation" identifier="mainScreenSegue" modalPresentationStyle="fullScreen" id="8GT-FR-sSt"/>
-                        <segue destination="lTK-cc-Y9g" kind="presentation" identifier="ServiceSegue" modalPresentationStyle="fullScreen" id="Uyx-jO-f4g"/>
+                        <segue destination="lTK-cc-Y9g" kind="presentation" identifier="ServiceSegue" id="Idf-iL-9Fx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gfh-y2-ea9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -93,57 +93,57 @@
             <objects>
                 <viewController storyboardIdentifier="DataRequestVC" id="lTK-cc-Y9g" customClass="DataRequestController" customModule="UI_Project" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iMD-V8-mn1">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="872"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="SERVICE DATA REQUEST" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iPR-BF-6o0">
-                                <rect key="frame" x="118.66666666666669" y="44" width="191" height="34"/>
+                                <rect key="frame" x="118.66666666666669" y="0.0" width="191" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Token" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5C6-3x-GCG">
-                                <rect key="frame" x="20" y="94" width="67" height="34"/>
+                                <rect key="frame" x="20" y="50" width="67" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dHG-wh-hog">
-                                <rect key="frame" x="20" y="138" width="388" height="34"/>
+                                <rect key="frame" x="20" y="94" width="388" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="User ID" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sZd-6t-E2E">
-                                <rect key="frame" x="20" y="182" width="76" height="34"/>
+                                <rect key="frame" x="20" y="138" width="76" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WCF-kT-uGf">
-                                <rect key="frame" x="20" y="226" width="388" height="34"/>
+                                <rect key="frame" x="20" y="182" width="388" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n4G-28-e1K">
-                                <rect key="frame" x="20" y="268" width="161" height="30"/>
+                                <rect key="frame" x="20" y="224" width="161" height="30"/>
                                 <state key="normal" title="Запрос списка друзей"/>
                                 <connections>
                                     <action selector="getFriends:" destination="lTK-cc-Y9g" eventType="touchUpInside" id="QHN-gU-PdQ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fmu-ru-FyX">
-                                <rect key="frame" x="20" y="306" width="144" height="30"/>
+                                <rect key="frame" x="20" y="262" width="144" height="30"/>
                                 <state key="normal" title="Запрос фотографий"/>
                                 <connections>
                                     <action selector="getPhoto:" destination="lTK-cc-Y9g" eventType="touchUpInside" id="NDU-zc-cvi"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rlN-Lv-gB5">
-                                <rect key="frame" x="20" y="344" width="151" height="30"/>
+                                <rect key="frame" x="20" y="300" width="151" height="30"/>
                                 <state key="normal" title="Запрос списка групп"/>
                                 <connections>
                                     <action selector="getGroups:" destination="lTK-cc-Y9g" eventType="touchUpInside" id="Wcn-2x-3MN"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8kD-B0-V0K">
-                                <rect key="frame" x="20" y="382" width="174" height="30"/>
+                                <rect key="frame" x="20" y="338" width="174" height="30"/>
                                 <state key="normal" title="Поиск групп по запросу"/>
                                 <connections>
                                     <action selector="searchGroup:" destination="lTK-cc-Y9g" eventType="touchUpInside" id="RHd-Of-7xP"/>
@@ -265,10 +265,10 @@
             </objects>
             <point key="canvasLocation" x="-756" y="-1508"/>
         </scene>
-        <!--Tab Controller-->
+        <!--Tab Bar Controller-->
         <scene sceneID="CqH-Bl-cFz">
             <objects>
-                <tabBarController storyboardIdentifier="NaviBar" id="VoT-Gb-jyg" customClass="TabController" customModule="UI_Project" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController id="VoT-Gb-jyg" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="RJ3-9V-gea"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="cie-RC-ph3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
@@ -356,7 +356,7 @@
                                             <rect key="frame" x="0.0" y="476" width="428" height="40"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QQ0-fL-azT" customClass="LikeButton" customModule="UI_Project" customModuleProvider="target">
-                                                    <rect key="frame" x="408" y="4" width="10" height="31"/>
+                                                    <rect key="frame" x="388" y="4" width="30" height="31"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="31" id="o56-Ma-gb6"/>
                                                     </constraints>
@@ -364,15 +364,15 @@
                                                     <state key="normal" image="heart_empty"/>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J9h-i3-zYc">
-                                                    <rect key="frame" x="26" y="5" width="10" height="30"/>
+                                                    <rect key="frame" x="46" y="5" width="30" height="30"/>
                                                     <state key="normal" image="viewed"/>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LHo-jW-VfA">
-                                                    <rect key="frame" x="8" y="5" width="10" height="30"/>
+                                                    <rect key="frame" x="8" y="5" width="30" height="30"/>
                                                     <state key="normal" image="reply"/>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cll-9p-TUX">
-                                                    <rect key="frame" x="44" y="5" width="10" height="30"/>
+                                                    <rect key="frame" x="84" y="5" width="30" height="30"/>
                                                     <state key="normal" image="comment"/>
                                                 </button>
                                             </subviews>
@@ -800,7 +800,7 @@
         <!--Друзья-->
         <scene sceneID="Hay-4p-im0">
             <objects>
-                <navigationController storyboardIdentifier="Friends" id="KMV-Wg-hWF" customClass="CustomNavigationController" customModule="UI_Project" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController id="KMV-Wg-hWF" customClass="CustomNavigationController" customModule="UI_Project" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Друзья" image="person" catalog="system" id="jLT-Zx-tLJ"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="fqp-aw-9mF">
                         <rect key="frame" x="0.0" y="44" width="428" height="44"/>
@@ -957,17 +957,17 @@
     <resources>
         <image name="Anna" width="3744" height="3726"/>
         <image name="Vika" width="2513" height="2637"/>
-        <image name="comment" width="10" height="10"/>
-        <image name="heart_empty" width="10" height="10"/>
+        <image name="comment" width="30" height="30"/>
+        <image name="heart_empty" width="30" height="30"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="newspaper" catalog="system" width="128" height="108"/>
         <image name="pencil.circle" catalog="system" width="128" height="121"/>
         <image name="person" catalog="system" width="128" height="117"/>
         <image name="person.2.square.stack.fill" catalog="system" width="113" height="128"/>
         <image name="person.3" catalog="system" width="128" height="62"/>
-        <image name="reply" width="10" height="10"/>
+        <image name="reply" width="30" height="30"/>
         <image name="terminal" catalog="system" width="128" height="93"/>
-        <image name="viewed" width="10" height="10"/>
+        <image name="viewed" width="30" height="30"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
