@@ -32,7 +32,8 @@ class AnimationController: UIViewController {
             let nextViewController = storyBoard.instantiateViewController(withIdentifier: "WKWebView") as! WebAuthController
             nextViewController.modalPresentationStyle = .fullScreen
             self.present(nextViewController, animated:true, completion:nil)
-        }    }
-    
+        }
+        
+    }
     
 }
