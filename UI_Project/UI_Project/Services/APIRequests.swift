@@ -73,7 +73,7 @@ final class APIRequest {
             array = friendsPhotoResponse!.items
             var sizesArray = [Photos]()
             var i = array.makeIterator()
-            while var photos = i.next() {
+            while let photos = i.next() {
                 let p = photos.sizes.removeLast()
                 sizesArray.append(p)
             }

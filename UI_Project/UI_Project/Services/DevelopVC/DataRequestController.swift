@@ -19,6 +19,8 @@ class DataRequestController: UIViewController {
         super.viewDidLoad()
         print("PRINTED TOKEN")
         print(VKSession.currentSession.token)
+        print("PRINTED ID")
+        print(VKSession.currentSession.userId)
         tokenText.text = VKSession.currentSession.token
         userIDText.text = VKSession.currentSession.userId
     }
