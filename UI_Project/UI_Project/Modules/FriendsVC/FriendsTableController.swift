@@ -14,17 +14,31 @@ class FriendsTableController: UITableViewController {
     let friendsRequest = APIRequest()
     let DB = UsersDatabaseService()
     
-    var friendsData: [UserModel] = []
+    var token: NotificationToken?
+    
+    var friendsData: Results<UserModel>?{
+        didSet {
+            token = friendsData!.observe { [weak self] (changes: RealmCollectionChange) in
+                guard let tableView = self?.tableView else { return }
+                switch changes {
+                case .initial:
+                    print("INITIAL")
+                    print(changes)
+                case .update:
+                    tableView.reloadData()
+                case .error(let error):
+                    print("ERROR")
+                    fatalError("\(error)")
+                }
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.rowHeight = 60
         friendsRequest.getFriends()
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
-            self.friendsData = self.DB.read()
-            self.tableView.reloadData()
-        }
+        friendsData = DB.readResults()
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -42,7 +56,7 @@ class FriendsTableController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        friendsData.count
+        friendsData!.count
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -79,7 +93,7 @@ class FriendsTableController: UITableViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "userFriends", for: indexPath) as! TableViewCell
         
-        let friends = friendsData[indexPath.row]
+        let friends = friendsData![indexPath.row]
         cell.friendLabel.text = friends.firstName! + " " + friends.lastName!
         
         imageCache(url: friends.photo50!) { image in
@@ -98,7 +112,7 @@ class FriendsTableController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vc = segue.destination as! ProfileController
         if let indexPath = self.tableView.indexPathForSelectedRow {
-            let friends = friendsData[indexPath.row]
+            let friends = friendsData![indexPath.row]
             vc.userID = friends.id
             vc.userPhoto = friends.photo100!
             vc.userName = friends.firstName

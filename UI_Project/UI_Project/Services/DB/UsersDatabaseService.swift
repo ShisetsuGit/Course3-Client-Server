@@ -27,8 +27,13 @@ class UsersDatabaseService: UsersDatabaseServiceProtocol {
     }
     
     func read() -> [UserModel] {
-        let users = self.realm.objects(UserModel.self)
+        let users = self.realm.objects(UserModel.self).sorted(byKeyPath: "firstName")
         return Array(users)
+    }
+    
+    func readResults() -> Results<UserModel>? {
+        let usersResults = self.realm.objects(UserModel.self).sorted(byKeyPath: "firstName")
+        return usersResults
     }
     
     func delete(user: UserModel) {

@@ -6,10 +6,28 @@
 //
 
 import UIKit
+import RealmSwift
 
 class CollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+    var token: NotificationToken?
 
-    var photoToFullScreen = [PhotoModel]()
+    var photoToFullScreen: Results<PhotoModel>?{
+        didSet {
+            token = photoToFullScreen!.observe { [weak self] (changes: RealmCollectionChange) in
+                guard let collectionView = self?.collectionView else { return }
+                switch changes {
+                case .initial:
+                    print("INITIAL")
+                    print(changes)
+                case .update:
+                    collectionView.reloadData()
+                case .error(let error):
+                    print("ERROR")
+                    fatalError("\(error)")
+                }
+            }
+        }
+    }
     let DB = PhotoDatabaseService()
     var userID = String()
     
@@ -18,11 +36,7 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
     
     
     override func viewDidLoad() {
-        photoToFullScreen = self.DB.read(userID: self.userID)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
-//            print(self.photoToFullScreen)
-            self.collectionView.reloadData()
-        }
+        photoToFullScreen = DB.readResults(userID: userID)
         
         self.tabBarController?.tabBar.isHidden = false
         super.viewDidLoad()
@@ -33,7 +47,7 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let photos = photoToFullScreen[indexPath.row]
+        let photos = photoToFullScreen![indexPath.row]
         imageCache(url: photos.url!) { image in
             let imageView = UIImageView(image: image)
             imageView.frame = self.view.frame
@@ -56,14 +70,15 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return photoToFullScreen.count
+        return photoToFullScreen!.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoFullViewCell", for: indexPath) as! PhotoFullViewCell
-        let photos = photoToFullScreen[indexPath.row]
+        let photos = photoToFullScreen![indexPath.row]
         imageCache(url: photos.url!) { image in
             cell.photoView.image = image
+            cell.photoView.contentMode = .scaleAspectFill
         }
         
         return cell

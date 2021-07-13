@@ -13,7 +13,6 @@
 		99102D2B2592077E00F620BD /* NewsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99102D2A2592077E00F620BD /* NewsViewCell.swift */; };
 		9919951825C846D800E1E729 /* VKSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9919951725C846D700E1E729 /* VKSession.swift */; };
 		99448950267CDD40000BE17A /* WebAuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9944894F267CDD40000BE17A /* WebAuthController.swift */; };
-		99448952267CDEC2000BE17A /* DataRequestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99448951267CDEC2000BE17A /* DataRequestController.swift */; };
 		9949D1F0259F5A9600EF5DD4 /* PhotoFullViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9949D1EE259F5A9600EF5DD4 /* PhotoFullViewCell.swift */; };
 		9949D1F1259F5A9600EF5DD4 /* PhotoFullViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9949D1EF259F5A9600EF5DD4 /* PhotoFullViewCell.xib */; };
 		9949D1F6259F66BD00EF5DD4 /* FullScreenPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9949D1F5259F66BD00EF5DD4 /* FullScreenPhoto.swift */; };
@@ -61,7 +60,6 @@
 		99102D2A2592077E00F620BD /* NewsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewCell.swift; sourceTree = "<group>"; };
 		9919951725C846D700E1E729 /* VKSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKSession.swift; sourceTree = "<group>"; };
 		9944894F267CDD40000BE17A /* WebAuthController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebAuthController.swift; sourceTree = "<group>"; };
-		99448951267CDEC2000BE17A /* DataRequestController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRequestController.swift; sourceTree = "<group>"; };
 		9949D1EE259F5A9600EF5DD4 /* PhotoFullViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoFullViewCell.swift; sourceTree = "<group>"; };
 		9949D1EF259F5A9600EF5DD4 /* PhotoFullViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoFullViewCell.xib; sourceTree = "<group>"; };
 		9949D1F5259F66BD00EF5DD4 /* FullScreenPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenPhoto.swift; sourceTree = "<group>"; };
@@ -199,7 +197,6 @@
 		9983115026909C3D0096590B /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				99C45FC22683A13200071D9A /* DevelopVC */,
 				99975ABA25A2171E00E11042 /* NaviVC */,
 				998167332584CD25001DA1E3 /* GroupsVC */,
 				998166E6258409D7001DA1E3 /* FriendsVC */,
@@ -216,14 +213,6 @@
 				99C45FDB268B101200071D9A /* TabController.swift */,
 			);
 			path = NaviVC;
-			sourceTree = "<group>";
-		};
-		99C45FC22683A13200071D9A /* DevelopVC */ = {
-			isa = PBXGroup;
-			children = (
-				99448951267CDEC2000BE17A /* DataRequestController.swift */,
-			);
-			path = DevelopVC;
 			sourceTree = "<group>";
 		};
 		99C45FC92683CE3600071D9A /* Animation */ = {
@@ -481,7 +470,6 @@
 				99F05D812695DE3F0073CC70 /* PhotoDatabaseServiceProtocol.swift in Sources */,
 				99E44C682693180C005D3586 /* UsersDatabaseService.swift in Sources */,
 				99F05D712694561C0073CC70 /* GroupsModel.swift in Sources */,
-				99448952267CDEC2000BE17A /* DataRequestController.swift in Sources */,
 				9949D1F0259F5A9600EF5DD4 /* PhotoFullViewCell.swift in Sources */,
 				99C45FCE2684632F00071D9A /* APIRequests.swift in Sources */,
 				99F05D6F269443B10073CC70 /* ImageCache.swift in Sources */,

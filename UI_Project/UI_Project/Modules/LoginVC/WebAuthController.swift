@@ -71,13 +71,8 @@ class WebAuthController: UIViewController, WKNavigationDelegate {
     }
     
     func showMainScreen() {
-//        MARK: - Usual work segue to main Friend List VC
         DispatchQueue.main.async {
             self.performSegue(withIdentifier: "mainScreenSegue", sender: nil)
         }
-//        MARK: - Seque to service VC for analyze data
-//                DispatchQueue.main.async {
-//                    self.performSegue(withIdentifier: "ServiceSegue", sender: nil)
-//                }
     }
 }
