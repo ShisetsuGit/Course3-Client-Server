@@ -53,8 +53,8 @@ final class APIRequest {
         let method = "/photos.getAll"
         let parameters: Parameters = [
             "owner_id": userID,
-            "count": 5,
             "photo_sizes": 1,
+            "count": 5,
             "extended": 1,
             "no_service_albums": 1,
             "access_token": token,

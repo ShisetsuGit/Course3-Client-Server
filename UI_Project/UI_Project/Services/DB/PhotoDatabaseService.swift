@@ -10,6 +10,7 @@ import RealmSwift
 
 class PhotoDatabaseService: PhotoDatabaseServiceProtocol {
     
+    
     let config = Realm.Configuration(schemaVersion: 1)
     lazy var realm = try! Realm(configuration: config)
     
@@ -31,6 +32,11 @@ class PhotoDatabaseService: PhotoDatabaseServiceProtocol {
         print("DB Photos")
         print(photos)
         return Array(photos)
+    }
+    
+    func readResults(userID: String) -> Results<PhotoModel>? {
+        let photosResults = self.realm.objects(PhotoModel.self).filter("id = '\(userID)'")
+        return photosResults
     }
     
     func delete(photo: PhotoModel) {

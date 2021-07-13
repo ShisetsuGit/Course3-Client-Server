@@ -31,6 +31,11 @@ class GroupsDatabaseService: GroupsDatabaseServiceProtocol {
         return Array(groups)
     }
     
+    func readResults() -> Results<GroupsModel>? {
+        let groupsResults = self.realm.objects(GroupsModel.self).sorted(byKeyPath: "name")
+        return groupsResults
+    }
+    
     func delete(groups: GroupsModel) {
         
         do {

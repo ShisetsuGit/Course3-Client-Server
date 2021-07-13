@@ -6,13 +6,14 @@
 //
 
 import UIKit
+import RealmSwift
 
 class ProfileController: UIViewController {
     
     let photoRequest = APIRequest()
     
     var userPhoto = String()
-    var photoArray = [PhotoModel]()
+    var photoArray: Results<PhotoModel>?
     var userName: String!
     var userSurname: String!
     var userCity: String!
@@ -35,6 +36,7 @@ class ProfileController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         photoRequest.getPhoto(userID: userID)
+        photoArray = DB.readResults(userID: userID)
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
         
