@@ -11,5 +11,10 @@ target 'UI_Project' do
   pod 'RealmSwift'
   pod 'Kingfisher'
   pod 'DynamicJSON'
+  
+  #Firebase
+  pod 'Firebase/Auth'
+  pod 'Firebase/Database'
+  pod 'Firebase/Firestore'
 
 end

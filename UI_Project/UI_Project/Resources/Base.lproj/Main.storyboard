@@ -23,7 +23,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PUU-Ty-3ul" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-757" y="-255"/>
+            <point key="canvasLocation" x="-1360" y="-255"/>
         </scene>
         <!--3 DOT-->
         <scene sceneID="xNf-vG-kql">
@@ -50,7 +50,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4qJ-jt-s1I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1562" y="-257"/>
+            <point key="canvasLocation" x="-2127" y="-259"/>
         </scene>
         <!--Web Auth Controller-->
         <scene sceneID="9dB-ts-mjB">
@@ -78,115 +78,15 @@
                             <constraint firstItem="nHq-kj-uWU" firstAttribute="bottom" secondItem="T3F-2c-j67" secondAttribute="bottom" id="lL2-Cu-fWL"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Kyl-6a-8p2"/>
                     <connections>
                         <outlet property="webView" destination="T3F-2c-j67" id="K6S-Fh-sjM"/>
                         <segue destination="VoT-Gb-jyg" kind="presentation" identifier="mainScreenSegue" modalPresentationStyle="fullScreen" id="8GT-FR-sSt"/>
-                        <segue destination="lTK-cc-Y9g" kind="presentation" identifier="ServiceSegue" modalPresentationStyle="fullScreen" id="Uyx-jO-f4g"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gfh-y2-ea9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="86" y="-257"/>
-        </scene>
-        <!--Data Request Controller-->
-        <scene sceneID="AJf-0I-Xse">
-            <objects>
-                <viewController storyboardIdentifier="DataRequestVC" id="lTK-cc-Y9g" customClass="DataRequestController" customModule="UI_Project" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="iMD-V8-mn1">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="SERVICE DATA REQUEST" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iPR-BF-6o0">
-                                <rect key="frame" x="118.66666666666669" y="44" width="191" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Token" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5C6-3x-GCG">
-                                <rect key="frame" x="20" y="94" width="67" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dHG-wh-hog">
-                                <rect key="frame" x="20" y="138" width="388" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="User ID" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sZd-6t-E2E">
-                                <rect key="frame" x="20" y="182" width="76" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WCF-kT-uGf">
-                                <rect key="frame" x="20" y="226" width="388" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n4G-28-e1K">
-                                <rect key="frame" x="20" y="268" width="161" height="30"/>
-                                <state key="normal" title="Запрос списка друзей"/>
-                                <connections>
-                                    <action selector="getFriends:" destination="lTK-cc-Y9g" eventType="touchUpInside" id="QHN-gU-PdQ"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fmu-ru-FyX">
-                                <rect key="frame" x="20" y="306" width="144" height="30"/>
-                                <state key="normal" title="Запрос фотографий"/>
-                                <connections>
-                                    <action selector="getPhoto:" destination="lTK-cc-Y9g" eventType="touchUpInside" id="NDU-zc-cvi"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rlN-Lv-gB5">
-                                <rect key="frame" x="20" y="344" width="151" height="30"/>
-                                <state key="normal" title="Запрос списка групп"/>
-                                <connections>
-                                    <action selector="getGroups:" destination="lTK-cc-Y9g" eventType="touchUpInside" id="Wcn-2x-3MN"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8kD-B0-V0K">
-                                <rect key="frame" x="20" y="382" width="174" height="30"/>
-                                <state key="normal" title="Поиск групп по запросу"/>
-                                <connections>
-                                    <action selector="searchGroup:" destination="lTK-cc-Y9g" eventType="touchUpInside" id="RHd-Of-7xP"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="tcd-cx-Va4"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="iPR-BF-6o0" firstAttribute="centerX" secondItem="tcd-cx-Va4" secondAttribute="centerX" id="06c-B5-KRi"/>
-                            <constraint firstItem="iPR-BF-6o0" firstAttribute="top" secondItem="tcd-cx-Va4" secondAttribute="top" id="3fZ-nE-Uq8"/>
-                            <constraint firstItem="sZd-6t-E2E" firstAttribute="top" secondItem="dHG-wh-hog" secondAttribute="bottom" constant="10" id="9IV-xb-ucV"/>
-                            <constraint firstItem="WCF-kT-uGf" firstAttribute="leading" secondItem="tcd-cx-Va4" secondAttribute="leading" constant="20" id="ABc-ee-VIQ"/>
-                            <constraint firstItem="n4G-28-e1K" firstAttribute="top" secondItem="WCF-kT-uGf" secondAttribute="bottom" constant="8" id="ARQ-8q-KD6"/>
-                            <constraint firstItem="tcd-cx-Va4" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="n4G-28-e1K" secondAttribute="trailing" symbolic="YES" id="Ggy-iQ-z5D"/>
-                            <constraint firstItem="dHG-wh-hog" firstAttribute="leading" secondItem="tcd-cx-Va4" secondAttribute="leading" constant="20" id="Hvm-5h-wlz"/>
-                            <constraint firstItem="dHG-wh-hog" firstAttribute="top" secondItem="5C6-3x-GCG" secondAttribute="bottom" constant="10" id="LoR-kG-EJq"/>
-                            <constraint firstItem="Fmu-ru-FyX" firstAttribute="leading" secondItem="tcd-cx-Va4" secondAttribute="leading" constant="20" id="MKi-V4-O31"/>
-                            <constraint firstItem="tcd-cx-Va4" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="rlN-Lv-gB5" secondAttribute="trailing" symbolic="YES" id="MNv-Rh-BaB"/>
-                            <constraint firstItem="WCF-kT-uGf" firstAttribute="top" secondItem="sZd-6t-E2E" secondAttribute="bottom" constant="10" id="QEz-3b-JJS"/>
-                            <constraint firstItem="tcd-cx-Va4" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="8kD-B0-V0K" secondAttribute="trailing" symbolic="YES" id="T8a-c8-Ds8"/>
-                            <constraint firstItem="5C6-3x-GCG" firstAttribute="leading" secondItem="tcd-cx-Va4" secondAttribute="leading" constant="20" id="UDw-xO-n7X"/>
-                            <constraint firstItem="sZd-6t-E2E" firstAttribute="leading" secondItem="tcd-cx-Va4" secondAttribute="leading" constant="20" id="Vjn-tp-6Tg"/>
-                            <constraint firstItem="Fmu-ru-FyX" firstAttribute="top" secondItem="n4G-28-e1K" secondAttribute="bottom" constant="8" id="Xxg-eQ-Csp"/>
-                            <constraint firstItem="n4G-28-e1K" firstAttribute="leading" secondItem="tcd-cx-Va4" secondAttribute="leading" constant="20" id="YeU-P2-El8"/>
-                            <constraint firstItem="tcd-cx-Va4" firstAttribute="trailing" secondItem="dHG-wh-hog" secondAttribute="trailing" constant="20" id="fNF-Zi-l1u"/>
-                            <constraint firstItem="8kD-B0-V0K" firstAttribute="top" secondItem="rlN-Lv-gB5" secondAttribute="bottom" constant="8" id="gME-eh-vGR"/>
-                            <constraint firstItem="rlN-Lv-gB5" firstAttribute="top" secondItem="Fmu-ru-FyX" secondAttribute="bottom" constant="8" id="gkX-rG-VcE"/>
-                            <constraint firstItem="tcd-cx-Va4" firstAttribute="trailing" secondItem="WCF-kT-uGf" secondAttribute="trailing" constant="20" id="kk6-a2-gsf"/>
-                            <constraint firstItem="rlN-Lv-gB5" firstAttribute="leading" secondItem="tcd-cx-Va4" secondAttribute="leading" constant="20" id="lQD-kM-MzB"/>
-                            <constraint firstItem="5C6-3x-GCG" firstAttribute="top" secondItem="tcd-cx-Va4" secondAttribute="top" constant="50" id="lXs-hl-hCd"/>
-                            <constraint firstItem="tcd-cx-Va4" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Fmu-ru-FyX" secondAttribute="trailing" symbolic="YES" id="suu-vf-jRM"/>
-                            <constraint firstItem="8kD-B0-V0K" firstAttribute="leading" secondItem="tcd-cx-Va4" secondAttribute="leading" constant="20" id="xcz-gX-nO0"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="tokenText" destination="WCF-kT-uGf" id="7Fn-3l-7rh"/>
-                        <outlet property="userIDText" destination="dHG-wh-hog" id="fjw-BT-aaO"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="XcW-PC-0es" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="48" y="-1508"/>
+            <point key="canvasLocation" x="135" y="-257"/>
         </scene>
         <!--Login Screen-->
         <scene sceneID="tne-QT-ifu">
@@ -212,16 +112,29 @@
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z9M-ne-z3L">
                                         <rect key="frame" x="20" y="298.33333333333331" width="388" height="22"/>
-                                        <state key="normal" title="Login" image="terminal" catalog="system">
+                                        <state key="normal" title=" Sign In" image="cloud" catalog="system">
                                             <color key="titleColor" systemColor="labelColor"/>
                                             <color key="titleShadowColor" name="AccentColor"/>
                                         </state>
+                                        <connections>
+                                            <action selector="signIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JSi-Bk-QAE"/>
+                                        </connections>
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Login" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nYX-xr-zg4">
                                         <rect key="frame" x="100" y="190.33333333333334" width="228" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" textContentType="email"/>
                                     </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ot-WR-pDX">
+                                        <rect key="frame" x="20" y="334" width="388" height="22"/>
+                                        <state key="normal" title=" Register" image="cloud" catalog="system">
+                                            <color key="titleColor" systemColor="labelColor"/>
+                                            <color key="titleShadowColor" name="AccentColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="signUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qzf-y7-5OE"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <constraints>
@@ -232,10 +145,13 @@
                                     <constraint firstItem="z9M-ne-z3L" firstAttribute="top" secondItem="a00-TK-SgU" secondAttribute="bottom" constant="20" id="BPD-z2-T0R"/>
                                     <constraint firstItem="nYX-xr-zg4" firstAttribute="top" secondItem="buq-wN-KT8" secondAttribute="bottom" constant="20" id="Bb5-R8-d3D"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="buq-wN-KT8" secondAttribute="trailing" constant="50" id="Bis-x0-1Uj"/>
+                                    <constraint firstItem="4ot-WR-pDX" firstAttribute="leading" secondItem="z9M-ne-z3L" secondAttribute="leading" id="Fx6-rJ-ZY6"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="nYX-xr-zg4" secondAttribute="trailing" constant="100" id="GQd-mD-IH8"/>
                                     <constraint firstItem="nYX-xr-zg4" firstAttribute="centerX" secondItem="tYi-sa-f3a" secondAttribute="centerX" id="IWh-us-QqB"/>
                                     <constraint firstAttribute="trailing" secondItem="z9M-ne-z3L" secondAttribute="trailing" constant="20" id="XNf-zN-RfT"/>
+                                    <constraint firstItem="4ot-WR-pDX" firstAttribute="top" secondItem="z9M-ne-z3L" secondAttribute="bottom" constant="13.666666666666686" id="a3e-9B-dQZ"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="a00-TK-SgU" secondAttribute="trailing" constant="100" id="d7E-Me-Veu"/>
+                                    <constraint firstItem="4ot-WR-pDX" firstAttribute="trailing" secondItem="z9M-ne-z3L" secondAttribute="trailing" id="eAU-LN-Sdh"/>
                                     <constraint firstItem="a00-TK-SgU" firstAttribute="leading" secondItem="tYi-sa-f3a" secondAttribute="leading" constant="100" id="eWd-KH-Kib"/>
                                     <constraint firstItem="a00-TK-SgU" firstAttribute="top" secondItem="nYX-xr-zg4" secondAttribute="bottom" constant="20" id="hfr-aV-W5s"/>
                                     <constraint firstAttribute="bottom" secondItem="z9M-ne-z3L" secondAttribute="bottom" constant="20" id="l3s-Fs-9DM"/>
@@ -255,15 +171,17 @@
                             <constraint firstItem="tYi-sa-f3a" firstAttribute="top" secondItem="doe-4B-q8A" secondAttribute="top" id="xZZ-qd-PtL"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="7ww-iM-48y"/>
                     <connections>
                         <outlet property="loginInput" destination="nYX-xr-zg4" id="bJj-wH-YLt"/>
                         <outlet property="passwordInput" destination="a00-TK-SgU" id="4D0-I6-76E"/>
                         <outlet property="scrollView" destination="tYi-sa-f3a" id="gj5-ce-Edi"/>
+                        <segue destination="2Nq-uW-k0A" kind="presentation" identifier="Log In" modalPresentationStyle="fullScreen" id="Acy-K6-aZ1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-756" y="-1508"/>
+            <point key="canvasLocation" x="-606" y="-257"/>
         </scene>
         <!--Tab Controller-->
         <scene sceneID="CqH-Bl-cFz">
@@ -444,9 +362,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search" id="Mjn-tf-js1">
+                            <rect key="frame" x="0.0" y="0.0" width="428" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="userFriends" rowHeight="60" id="3Ls-z2-cuN" customClass="TableViewCell" customModule="UI_Project" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="24.333333969116211" width="428" height="60"/>
+                                <rect key="frame" x="0.0" y="68.333333969116211" width="428" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3Ls-z2-cuN" id="ktE-UN-TsH">
                                     <rect key="frame" x="0.0" y="0.0" width="428" height="60"/>
@@ -501,7 +424,13 @@
                             </tableViewCell>
                         </prototypes>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Друзья" id="mhd-08-vDP"/>
+                    <navigationItem key="navigationItem" title="Друзья" id="mhd-08-vDP">
+                        <barButtonItem key="leftBarButtonItem" title="LogOut" id="Wdy-Gh-PWZ">
+                            <connections>
+                                <action selector="logOutButtonPressed:" destination="4Es-6H-c3K" id="gGP-Gt-QO2"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="q0f-tA-iOz">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -517,6 +446,9 @@
                             <color key="value" systemColor="opaqueSeparatorColor"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <outlet property="searchBar" destination="Mjn-tf-js1" id="Blb-rw-SUT"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mSq-cS-uSI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -949,6 +881,7 @@
     <resources>
         <image name="Anna" width="3744" height="3726"/>
         <image name="Vika" width="2513" height="2637"/>
+        <image name="cloud" catalog="system" width="128" height="87"/>
         <image name="comment" width="10" height="10"/>
         <image name="heart_empty" width="10" height="10"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
@@ -958,7 +891,6 @@
         <image name="person.2.square.stack.fill" catalog="system" width="113" height="128"/>
         <image name="person.3" catalog="system" width="128" height="62"/>
         <image name="reply" width="10" height="10"/>
-        <image name="terminal" catalog="system" width="128" height="93"/>
         <image name="viewed" width="10" height="10"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

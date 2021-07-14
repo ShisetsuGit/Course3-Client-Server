@@ -6,8 +6,11 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class LoginController: UIViewController {
+    
+    private var handle: AuthStateDidChangeListenerHandle!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +23,15 @@ class LoginController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWasShown), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillBeHidden(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        self.handle = Auth.auth().addStateDidChangeListener { auth, user in
+            if user != nil {
+                self.performSegue(withIdentifier: "Log In", sender: nil)
+                self.loginInput.text = nil
+                self.passwordInput.text = nil
+            }
+        }
+
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -27,36 +39,67 @@ class LoginController: UIViewController {
         
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+        Auth.auth().removeStateDidChangeListener(handle)
         
     }
-    
-    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        
-        let checkResult = checkUserData()
-        
-        if !checkResult {
-            showLoginError()
-        }
-        return checkResult
-    }
-    
-    func checkUserData() -> Bool {
-        guard let userLogin = loginInput.text, let userPassword = passwordInput.text else {return false}
-        
-        if userLogin == "1" && userPassword == "1" {
-            return true
-        } else {
-            return false
-        }
-        
-    }
-    
-    func showLoginError() {
-        let alert = UIAlertController(title:"Error", message: "Login Failed", preferredStyle: .alert)
+
+    func showLoginError(title: String?, message: String?) {
+        let alert = UIAlertController(title:"Error", message: message, preferredStyle: .alert)
         let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
     }
+    
+    @IBAction func signIn(_ sender: Any) {
+        guard
+            let email = loginInput.text,
+            let password = passwordInput.text,
+            email.count > 0,
+            password.count > 0
+        else {
+            self.showLoginError(title: "Error", message: "Login/password is not entered")
+            return
+        }
+        Auth.auth().signIn(withEmail: email, password: password) { user, error in
+            if let error = error, user == nil {
+                self.showLoginError(title: "Error", message: error.localizedDescription)
+            }
+        }
+    }
+    
+    @IBAction func signUp(_ sender: Any) {
+        let alert = UIAlertController(title: "Register",
+                                      message: "Register",
+                                      preferredStyle: .alert)
+        alert.addTextField { textEmail in
+            textEmail.placeholder = "Enter your email"
+        }
+        alert.addTextField { textPassword in
+            textPassword.isSecureTextEntry = true
+            textPassword.placeholder = "Enter your password"
+        }
+        let cancelAction = UIAlertAction(title: "Cancel",
+                                         style: .cancel)
+        
+        
+        let saveAction = UIAlertAction(title: "Save", style: .default) { _ in
+            guard let emailField = alert.textFields?[0],
+                  let passwordField = alert.textFields?[1],
+                  let password = passwordField.text,
+                  let email = emailField.text else { return }
+            Auth.auth().createUser(withEmail: email, password: password) { [weak self] user, error in
+                if let error = error {
+                    self?.showLoginError(title: "Error", message: error.localizedDescription)
+                } else {
+                    Auth.auth().signIn(withEmail: email, password: password)
+                }
+            }
+        }
+        alert.addAction(saveAction)
+        alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
+    }
+
     
     @IBOutlet var loginInput: UITextField!
     
