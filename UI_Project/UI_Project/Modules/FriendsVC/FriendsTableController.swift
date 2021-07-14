@@ -8,13 +8,20 @@
 import UIKit
 import RealmSwift
 import Kingfisher
+import FirebaseAuth
 
-class FriendsTableController: UITableViewController {
+class FriendsTableController: UITableViewController, UISearchBarDelegate {
+    
+    @IBOutlet weak var searchBar: UISearchBar!
+    
+    var searchBarStatus = false
     
     let friendsRequest = APIRequest()
     let DB = UsersDatabaseService()
     
     var token: NotificationToken?
+    
+    var filteredData = [UserModel]()
     
     var friendsData: Results<UserModel>?{
         didSet {
@@ -39,6 +46,25 @@ class FriendsTableController: UITableViewController {
         self.tableView.rowHeight = 60
         friendsRequest.getFriends()
         friendsData = DB.readResults()
+        searchBar.delegate = self
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        filteredData = friendsData!.filter ({ (friend: UserModel) -> Bool in
+            return friend.firstName!.lowercased().contains(searchText.lowercased())
+        })
+        searchBar.showsCancelButton = true
+        searchBarStatus = true
+        tableView.reloadData()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = nil
+        searchBar.placeholder = "Search"
+        searchBar.showsCancelButton = false
+        searchBar.endEditing(true)
+        searchBarStatus = false
+        tableView.reloadData()
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -49,14 +75,23 @@ class FriendsTableController: UITableViewController {
         
         let label = UILabel(frame: CGRect(x: 4, y: 4, width: 160, height: 20))
         label.textColor = .black
-        label.text = "Список друзей"
+        if searchBarStatus {
+            label.text = "Результат поиска"
+        } else {
+            label.text = "Список друзей"
+        }
         returnedView.addSubview(label)
         
         return returnedView
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        friendsData!.count
+
+        if searchBarStatus {
+            return filteredData.count
+        }
+        let count = friendsData!.count
+        return count
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -93,11 +128,21 @@ class FriendsTableController: UITableViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "userFriends", for: indexPath) as! TableViewCell
         
-        let friends = friendsData![indexPath.row]
-        cell.friendLabel.text = friends.firstName! + " " + friends.lastName!
         
-        imageCache(url: friends.photo50!) { image in
-            cell.friendPhoto.image = image
+        if searchBarStatus {
+            let friends = filteredData[indexPath.row]
+            cell.friendLabel.text = friends.firstName! + " " + friends.lastName!
+            
+            imageCache(url: friends.photo50!) { image in
+                cell.friendPhoto.image = image
+            }
+        } else {
+            let friends = friendsData![indexPath.row]
+            cell.friendLabel.text = friends.firstName! + " " + friends.lastName!
+            
+            imageCache(url: friends.photo50!) { image in
+                cell.friendPhoto.image = image
+            }
         }
         
         cell.friendPhoto.clipsToBounds = true
@@ -112,18 +157,46 @@ class FriendsTableController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vc = segue.destination as! ProfileController
         if let indexPath = self.tableView.indexPathForSelectedRow {
-            let friends = friendsData![indexPath.row]
-            vc.userID = friends.id
-            vc.userPhoto = friends.photo100!
-            vc.userName = friends.firstName
-            vc.userSurname = friends.lastName
-            vc.userCity = friends.city
-            vc.userBirth = friends.bdate
-            if friends.online == 1 {
-                vc.userStatus = "Online"
-            } else if friends.online == 0 {
-                vc.userStatus = "Offline"
+            
+            if searchBarStatus {
+                let friends = filteredData[indexPath.row]
+                vc.userID = friends.id
+                vc.userPhoto = friends.photo100!
+                vc.userName = friends.firstName
+                vc.userSurname = friends.lastName
+                vc.userCity = friends.city
+                vc.userBirth = friends.bdate
+                if friends.online == 1 {
+                    vc.userStatus = "Online"
+                } else if friends.online == 0 {
+                    vc.userStatus = "Offline"
+                }
+            } else {
+                let friends = friendsData![indexPath.row]
+                vc.userID = friends.id
+                vc.userPhoto = friends.photo100!
+                vc.userName = friends.firstName
+                vc.userSurname = friends.lastName
+                vc.userCity = friends.city
+                vc.userBirth = friends.bdate
+                if friends.online == 1 {
+                    vc.userStatus = "Online"
+                } else if friends.online == 0 {
+                    vc.userStatus = "Offline"
+                }
             }
+        }
+    }
+    
+    @IBAction func logOutButtonPressed(_ sender: Any) {
+        do {
+            try Auth.auth().signOut()
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "LoginScreen") as! LoginController
+            nextViewController.modalPresentationStyle = .fullScreen
+            self.present(nextViewController, animated:true, completion:nil)
+        } catch (let error) {
+            print("Auth sign out failed: \(error)")
         }
     }
 }

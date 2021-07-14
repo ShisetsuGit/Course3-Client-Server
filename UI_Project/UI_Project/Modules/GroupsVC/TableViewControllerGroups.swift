@@ -7,6 +7,8 @@
 
 import UIKit
 import RealmSwift
+import FirebaseAuth
+import FirebaseFirestore
 
 class TableViewControllerGroups: UITableViewController {
     
@@ -15,6 +17,7 @@ class TableViewControllerGroups: UITableViewController {
     var imageName = UIImage()
     let DB = GroupsDatabaseService()
     var token: NotificationToken?
+    let fireDB = Firestore.firestore()
     
     var userGroups: Results<GroupsModel>?{
         didSet {
@@ -81,15 +84,34 @@ class TableViewControllerGroups: UITableViewController {
     }
     
     @IBAction func addGroup(segue: UIStoryboardSegue) {
+        var currentUser = Auth.auth().currentUser?.email
+        if currentUser == nil {
+            currentUser = "no email"
+        }
+        var userID = Auth.auth().currentUser?.uid
+        if userID == nil {
+            userID = "no ID"
+        }
         if segue.identifier == "addGroup" {
             guard let RecomendedGroups = segue.source as? TableViewControllerRecomendGroups else { return }
-
-
+            
             if let indexPath = RecomendedGroups.tableView.indexPathForSelectedRow {
                 let searchedGroups = RecomendedGroups.sendData[indexPath.row]
                 if !userGroups!.contains(searchedGroups) {
                     DispatchQueue.main.async() {
-                        self.DB.add(groups: [searchedGroups])
+                        do {
+                            self.fireDB.collection("Database").document(currentUser!).setData([                            "groupName": FieldValue.arrayUnion([searchedGroups.name!]),
+                                "groupPhoto": FieldValue.arrayUnion([searchedGroups.photo50!]),
+                                "userID": userID!
+                            ],merge: true) { err in
+                                if let err = err {
+                                    print("Error writing document: \(err)")
+                                } else {
+                                    print("Document successfully written!")
+                                }
+                            }
+                            self.DB.add(groups: [searchedGroups])
+                        }
                     }
                 }
             }

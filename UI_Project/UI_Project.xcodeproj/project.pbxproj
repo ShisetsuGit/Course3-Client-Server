@@ -45,6 +45,7 @@
 		99F05D7D2695DC8A0073CC70 /* PhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F05D7C2695DC8A0073CC70 /* PhotoModel.swift */; };
 		99F05D7F2695DDE60073CC70 /* PhotoDatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F05D7E2695DDE60073CC70 /* PhotoDatabaseService.swift */; };
 		99F05D812695DE3F0073CC70 /* PhotoDatabaseServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F05D802695DE3F0073CC70 /* PhotoDatabaseServiceProtocol.swift */; };
+		99F05D83269EE9090073CC70 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 99F05D82269EE9090073CC70 /* GoogleService-Info.plist */; };
 		99FDD4AA2578394900EA39AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FDD4A92578394900EA39AB /* AppDelegate.swift */; };
 		99FDD4AC2578394900EA39AB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FDD4AB2578394900EA39AB /* SceneDelegate.swift */; };
 		99FDD4B12578394900EA39AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99FDD4AF2578394900EA39AB /* Main.storyboard */; };
@@ -92,6 +93,7 @@
 		99F05D7C2695DC8A0073CC70 /* PhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoModel.swift; sourceTree = "<group>"; };
 		99F05D7E2695DDE60073CC70 /* PhotoDatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDatabaseService.swift; sourceTree = "<group>"; };
 		99F05D802695DE3F0073CC70 /* PhotoDatabaseServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDatabaseServiceProtocol.swift; sourceTree = "<group>"; };
+		99F05D82269EE9090073CC70 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		99FDD4A62578394900EA39AB /* UI_Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UI_Project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99FDD4A92578394900EA39AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		99FDD4AB2578394900EA39AB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -258,6 +260,7 @@
 		99E44C6226909D0E005D3586 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				99F05D82269EE9090073CC70 /* GoogleService-Info.plist */,
 				99FDD4A92578394900EA39AB /* AppDelegate.swift */,
 				99FDD4AB2578394900EA39AB /* SceneDelegate.swift */,
 				99FDD4AF2578394900EA39AB /* Main.storyboard */,
@@ -415,6 +418,7 @@
 				9949D1F1259F5A9600EF5DD4 /* PhotoFullViewCell.xib in Resources */,
 				99FDD4B12578394900EA39AB /* Main.storyboard in Resources */,
 				9949D1FB259F6C2E00EF5DD4 /* FullScreenPhotoCell.xib in Resources */,
+				99F05D83269EE9090073CC70 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
