@@ -8,11 +8,17 @@
 import UIKit
 
 class NewsViewCell: UITableViewCell {
-
-    @IBOutlet weak var newsLabel: UILabel!
-    @IBOutlet weak var newsDescription: UILabel!
-    @IBOutlet weak var photo: UIImageView!
     
+    
+    @IBOutlet weak var groupAvatar: UIImageView!
+    @IBOutlet weak var groupName: UILabel!
+    @IBOutlet weak var newsPhoto: UIImageView!
+    @IBOutlet weak var newsText: UILabel!
+    
+    @IBOutlet weak var likes: UILabel!
+    @IBOutlet weak var comments: UILabel!
+    @IBOutlet weak var reposts: UILabel!
+    @IBOutlet weak var views: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

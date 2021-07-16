@@ -20,6 +20,8 @@ final class APIRequest {
     let userDB = UsersDatabaseService()
     let groupsDB = GroupsDatabaseService()
     let photosDB = PhotoDatabaseService()
+    let newsGroupsDB = NewsGroupsDatabaseService()
+    let newsDB = NewsDatabaseService()
     
     //    MARK: - GET USER FRIENDS
     func getFriends() {
@@ -122,6 +124,35 @@ final class APIRequest {
             DispatchQueue.main.async {
                 completion(searchedGroups)
             }
+        }
+    }
+    
+    //    MARK: - GET NEWS (TYPE: Post)
+    func getNews() {
+        
+        let method = "/newsfeed.get"
+        let parameters: Parameters = [
+            "filters": "post",
+            "count": 50,
+            "access_token": token,
+            "v": version]
+        let url = baseUrl + method
+        
+        
+        AF.request(url, method: .get, parameters: parameters).responseData { response in
+            
+            print(response.request as Any)
+            
+            guard let data = response.data else { return }
+            guard let itemsNews = JSON(data).response.items.array else { return }
+            let news: [NewsModel] = itemsNews.map { NewsModel(data: $0) }
+            guard let itemsGroups = JSON(data).response.groups.array else { return }
+            let groups: [NewsGroupsModel] = itemsGroups.map { NewsGroupsModel(data: $0) }
+            DispatchQueue.main.async {
+                self.newsGroupsDB.add(newsGroups: groups)
+                self.newsDB.add(news: news)
+            }
+            
         }
     }
 }
