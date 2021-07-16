@@ -31,7 +31,7 @@ class WebAuthController: UIViewController, WKNavigationDelegate {
             URLQueryItem(name: "client_id", value: "7767306"),
             URLQueryItem(name: "display", value: "mobile"),
             URLQueryItem(name: "redirect_uri", value: "https://oauth.vk.com/blank.html"),
-            URLQueryItem(name: "scope", value: "friends,photos,groups"),
+            URLQueryItem(name: "scope", value: "friends,photos,groups,wall"),
             URLQueryItem(name: "response_type", value: "token"),
             URLQueryItem(name: "v", value: "5.131"),
             URLQueryItem(name: "state", value: "Your_TOKEN_is_MINE!!!"),
@@ -74,5 +74,8 @@ class WebAuthController: UIViewController, WKNavigationDelegate {
         DispatchQueue.main.async {
             self.performSegue(withIdentifier: "mainScreenSegue", sender: nil)
         }
+//        DispatchQueue.main.async {
+//            self.performSegue(withIdentifier: "TestVC", sender: nil)
+//        }
     }
 }

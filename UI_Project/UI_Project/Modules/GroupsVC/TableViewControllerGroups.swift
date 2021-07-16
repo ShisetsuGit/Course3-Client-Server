@@ -84,8 +84,14 @@ class TableViewControllerGroups: UITableViewController {
     }
     
     @IBAction func addGroup(segue: UIStoryboardSegue) {
-        let currentUser = Auth.auth().currentUser?.email
-        let userID = Auth.auth().currentUser?.uid
+        var currentUser = Auth.auth().currentUser?.email
+        if currentUser == nil {
+            currentUser = "no email"
+        }
+        var userID = Auth.auth().currentUser?.uid
+        if userID == nil {
+            userID = "no ID"
+        }
         if segue.identifier == "addGroup" {
             guard let RecomendedGroups = segue.source as? TableViewControllerRecomendGroups else { return }
             
